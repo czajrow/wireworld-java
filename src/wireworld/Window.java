@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class Window extends JFrame implements ActionListener {
-    private Game game;
+    private final Game game;
     private Matrix matrix;
     private MyCanvas myCanvas;
 
@@ -50,7 +50,7 @@ public class Window extends JFrame implements ActionListener {
     private void setupWindow() {
         setSize(1024, 512);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Wireworld by A&A");
+        setTitle("Wireworld");
     }
 
     private void setupMenu() {
@@ -207,10 +207,7 @@ public class Window extends JFrame implements ActionListener {
     }
 
     private void startStop() {
-        if (game.isRun())
-            game.setRun(false);
-        else
-            game.setRun(true);
+        game.setRun(!game.isRun());
     }
 
     private void setMenuPeriod(int period) {
